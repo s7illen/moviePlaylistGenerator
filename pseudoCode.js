@@ -32,5 +32,6 @@ $(function () {
 // ---- Stretch Goal List ---- 
 // 1. Make playlist modifiable (change order / delete watched items / etc..)
 // 2. Add actor collaboration search option.
-// 3. Modify playlist presentation - aesthetic enhancements, more dynamic display.
-// 4. Tinder-esque search interface; mobile-only (swipe selection).
+// 3. MAKE PROMISES!!
+// 4. Modify playlist presentation - aesthetic enhancements, more dynamic display.
+// 5. Tinder-esque search interface; mobile-only (swipe selection).

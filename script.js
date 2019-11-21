@@ -27,6 +27,8 @@ app.displaySearchResults = () => {
 app.displayPlaylist = () => {
     // console.log(app.smallMovieList[0]);
 
+    $('.playlist').empty();
+
     for (i = 0; i < app.smallMovieList.length; i++){
         $('.playlist').append(`<li id='${i}'>
             <img src='https://image.tmdb.org/t/p/w185_and_h278_bestv2${app.smallMovieList[i].poster_path}'>
@@ -35,6 +37,10 @@ app.displayPlaylist = () => {
             <div class='ratingBar'>${app.smallMovieList[i].popularity}</div>
             <div class='ratingBar'>${app.smallMovieList[i].vote_average}</div>
             <p>${app.smallMovieList[i].overview}</p>
+            <button class='pushTop'>↑⇧Move to Top</button>
+            <button class='skip'>Skip</button>
+            <button class='moveUp'>Move Up</button>
+            <button class='moveDown'>Move Down</button>
         </li>`);
     };
 };
@@ -97,10 +103,7 @@ $(function () {
     $('.searchResults').on('click', 'li', function () {
 
         app.userPickIDs = [];
-        // console.log('you clicked!', $(this).val());
         app.userPickIDs.push($(this).val());
-
-        console.log(app.userPickIDs);
     });
 
     $('.playlistButton').on('click', function () {
@@ -118,6 +121,31 @@ $(function () {
             app.displayPlaylist();
         });
     });
+
+    $('.playlist').on('click', '.skip', function() {
+        
+        arrayLocation = $(this).parent().attr('id');
+        
+        app.smallMovieList.splice(arrayLocation, 1);
+        console.log(app.smallMovieList);
+        app.displayPlaylist();
+    });
+
+    $('.playlist').on('click', '.pushTop', function() {
+        let arrayLocation = $(this).parent().attr('id');
+
+        let topValue = app.smallMovieList[arrayLocation];
+        app.smallMovieList.splice(arrayLocation, 1);
+        app.smallMovieList.unshift(topValue);
+        console.log(app.smallMovieList);
+        app.displayPlaylist();
+    });
+
+    // write a function that does this:
+    // move up button
+    // move down button
+    // swap their respective values
+    // make sure to limit options #1, #10
 });
 
 //make a function that returns a playlist
