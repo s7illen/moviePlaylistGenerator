@@ -24,6 +24,16 @@ app.displaySearchResults = () => {
     };
 };
 
+app.getTrailer = (movieid) => {
+    $.ajax({
+        url: `https://api.themoviedb.org/3/movie/${512}/videos?api_key=${app.apiKey}&language=en-US`,
+        method: 'GET',
+        dataType: 'json',
+    }).then(function(data){
+        console.log(data.results)
+    });
+}
+
 app.displayPlaylist = () => {
     // console.log(app.smallMovieList[0]);
 
@@ -41,8 +51,15 @@ app.displayPlaylist = () => {
             <button class='skip'>Skip</button>
             <button class='moveUp'>Move Up</button>
             <button class='moveDown'>Move Down</button>
+            <a href='https://www.youtube.com/watch?v='>Watch Trailer</a>
         </li>`);
+
     };
+
+    // console.log($('.playlist li:nth-child(1)'))
+    // $('.playlist li:nth-child(2)').css('background'+'red');
+
+
 };
 
 // searches for user input: actor name and returns their id number
@@ -124,7 +141,7 @@ $(function () {
 
     $('.playlist').on('click', '.skip', function() {
         
-        arrayLocation = $(this).parent().attr('id');
+        let arrayLocation = $(this).parent().attr('id');
         
         app.smallMovieList.splice(arrayLocation, 1);
         console.log(app.smallMovieList);
@@ -132,6 +149,7 @@ $(function () {
     });
 
     $('.playlist').on('click', '.pushTop', function() {
+
         let arrayLocation = $(this).parent().attr('id');
 
         let topValue = app.smallMovieList[arrayLocation];
@@ -141,9 +159,37 @@ $(function () {
         app.displayPlaylist();
     });
 
-    // write a function that does this:
-    // move up button
-    // move down button
+
+// write a function that does this:
+// move up button
+// move down button
+
+
+    $('.playlist').on('click', '.moveUp', function(){
+
+        let arrayLocation = parseInt($(this).parent().attr('id'));
+
+        console.log(arrayLocation);
+        let tem = app.smallMovieList[arrayLocation];
+        app.smallMovieList[arrayLocation] = app.smallMovieList[arrayLocation - 1];
+        app.smallMovieList[arrayLocation - 1] = tem;
+        console.log(app.smallMovieList);
+        app.displayPlaylist();
+
+    })
+
+    $('.playlist').on('click', '.moveDown', function () {
+
+        let arrayLocation = parseInt($(this).parent().attr('id'));
+
+        let tem = app.smallMovieList[arrayLocation];
+        app.smallMovieList[arrayLocation] = app.smallMovieList[arrayLocation + 1];
+        app.smallMovieList[arrayLocation + 1] = tem;
+        app.displayPlaylist();
+
+    })
+
+
     // swap their respective values
     // make sure to limit options #1, #10
 });
