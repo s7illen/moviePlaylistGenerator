@@ -1,0 +1,197 @@
+$pp1: #ad00bd;
+$pp2: #45108a;
+$sky: #2af6ff;
+
+* {
+    // border: red solid 1px;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+@mixin flexer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.wrapper {
+    width: 80%;
+    max-width: 1920px;
+    margin: 0 auto;
+}
+
+//Background Gradient
+@mixin backgroundGradient {
+    width: 100%;
+    height: 100%;
+    color: black;
+    background: linear-gradient(-45deg, rgb(136, 26, 182), rgb(95, 11, 147), rgb(53, 31, 181), rgba(13, 7, 41, 1));
+    opacity: 0.90;
+    background-size: 400% 400%;
+    animation: gradientBG 8s ease infinite;
+    @keyframes gradientBG {
+        0% {
+        background-position: 0% 50%;
+        }
+        50% {
+        background-position: 100% 50%;
+        }
+        100% {
+        background-position: 0% 50%;
+        }
+    }
+}
+
+//button styling
+.buttonContainer {
+    width: 140px;
+    button {
+    flex: 1 1 auto;
+    width: 100%;
+    height: 50px;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    font-size: 24px;
+    font-family: 'Alata', sans-serif;
+    margin-top: 7px;
+    box-shadow: 0 0 10px $sky;
+    border-radius: 25px;
+    background-image: linear-gradient(to left, $sky 0%, $pp1 100%);
+    }
+    button:hover {
+    background-position: right center;
+    }
+}
+
+
+//Glitch Effect
+@mixin textGlitch($name: 'name', $intensity:20, $textColor:white, $background: none, $highlightColor1:rgb(255, 111, 0), $highlightColor2:rgb(21, 208, 250), $width:100%, $height:100%) {
+  
+  color: $textColor;
+  position: relative;
+  $steps: $intensity;
+  
+  @at-root {
+    @for $i from 1 through 2 {
+      @keyframes #{$name}-anim-#{$i} {
+        @for $i from 0 through $steps {
+          $top: random(100);
+          $bottom: random(101 - $top);
+          #{percentage($i*(1/$steps))} {
+            clip-path: inset(#{$top}% 0 #{$bottom}% 0);
+          }
+        }
+      }
+    }
+  }
+  &::before,
+  &::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: $background;
+  }
+  &::after {
+    left: 2px;
+    text-shadow: -1px 0 $highlightColor1;
+    animation: #{$name}-anim-1 3s infinite linear alternate-reverse;
+  }
+  &::before {
+    left: -2px;
+    text-shadow: 1px 0 $highlightColor2; 
+    animation: #{$name}-anim-2 3s infinite linear alternate-reverse;
+  }
+}
+
+// Actor tag
+.actorTag {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    border: 4px solid white;
+    box-shadow: 0 0 10px $sky;
+    .ratingBar {
+        display: none;
+    }
+}
+
+//Neon Arrows
+.arrow {
+    width: 0;
+    height: 0;
+    text-align: center;
+    font-family: 'raleway', sans-serif;
+    font-size: 9em;
+    letter-spacing: -2rem;
+    margin: 0;
+    -webkit-transform:scale(1,5);
+    -moz-transform:scale(1,5);
+    text-decoration: none;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+    margin-top: -25vh;
+}
+
+@-webkit-keyframes neon {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de, 0 0 150px #ff00de;
+  }
+  to {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff00de, 0 0 35px #ff00de, 0 0 40px #ff00de, 0 0 50px #ff00de, 0 0 75px #ff00de;
+  }
+}
+
+@media (max-width: 960px) {
+    .wrapper {
+        width: 90%;
+    }
+}
+
+@mixin heading-1 {
+    font-family: 'Righteous', cursive;
+    font-size: 6rem;
+    line-height: 7rem;
+    letter-spacing: 1.5rem;
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0;
+    // @media (max-width: 700px) {
+    //     font-size: 2rem;
+    // }
+}
+
+@mixin heading-3 {
+    font-family: 'Righteous', cursive;
+    font-size: 3rem;
+    line-height: 3rem;
+    letter-spacing: 1.2rem;
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0;
+}
+
+@mixin text-1 {
+    font-family: 'Varela Round', sans-serif;
+    font-size: 1.2rem;
+    color: white;
+    text-align: center;
+    margin: 0;
+}

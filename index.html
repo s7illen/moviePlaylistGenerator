@@ -5,63 +5,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Project Four</title>
-
-    <style>
-        .demoStyling {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        input {
-            font-size: 20px;
-        }
-
-        ul {
-            list-style-type: none;
-        }
-        
-        .ratingBar {
-            width: 100px;
-            height: 20px;
-            background:lightcoral;
-        }
-
-        .playlist li:nth-child(1) .moveUp {
-            display: none;
-        }
-
-        .playlist li:last-child .moveDown {
-            display: none;
-        }
-    </style>
-
+    <title>Movie Playlist Generator</title>
+    <link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100|Alata|Righteous|Varela+Round&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <link rel="stylesheet" href="style/sass/style.css">
 </head>
 
 <body>
-
-    <h1>Movie Playlist Generator</h1>
-
-    <div>
-        <input type='text' class='searchBox' placeholder="Please Enter Actor Name">
-        <button class="searchButton">Search</button>
-    </div>
-
     <section class="search">
-        <ul class="searchResults">
-            <!-- the actor search results goes here -->
-        </ul>
+        <div class="backgroundGradient">
+                <div class="wrapper">
+                    <div class="titleSearch">
+                        <h1 class="glitch" data-text='MOVIE PLAYLIST'>MOVIE PLAYLIST</h1>
+                        <h3 class="glitch" data-text='GENERATOR'>Generator</h3>
+                        <div class="searchContainer">
+                            <input type='text' class='searchBox' placeholder="Please Enter Actor Name">
+                            <div class="buttonContainer">
+                                <button class="searchButton">Search</button>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="searchResults">
+    
+                        <!-- the actor search results goes here -->
+                    </ul>
+            </div>
+        </div>
     </section>
 
-    <section>
-        <button class="playlistButton">Get a Playlist</button>
-        <ul class="playlist">
-            <!-- the playlist goes here -->
+    <section class="generate">
+        <div class="wrapper generateContainer">
+            <div class="arrow arrow1">
+                >>>>>
+            </div>
+            <div class="buttonContainer">
+                <button class="playlistButton">Get a Playlist</button>
+            </div>
+            <div class="arrow arrow2">
+                <<<<<
+            </div>
+        </div>
+    </section>
 
-        </ul>
+    <section class="playlist">
+        <div class="wrapper">
+
+        </div>
     </section>
 
     <script src='https://code.jquery.com/jquery-3.2.1.min.js'

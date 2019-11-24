@@ -1,0 +1,76 @@
+.search {
+    height: 100vh;
+    background-image: url('../../image/moviePosters.jpg');
+    background-size: cover;
+    .backgroundGradient {
+        @include backgroundGradient;
+    }
+}
+
+.titleSearch {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    height: 65vh;
+    .glitch {
+        @include textGlitch;
+    }
+
+    h1{
+        @include heading-1;
+        margin-bottom: 20px;
+    }
+    h3{
+        @include heading-3;
+    }
+}
+
+.searchContainer {
+    width: 100%;
+    @include flexer;
+    margin-top: 50px;
+    input {
+        background: transparent;
+        width: 50%;
+        min-width: 300px;
+        border: none;
+        border-bottom: 3px solid white;
+        margin-right: 20px;
+        font-size: 36px;
+        font-family: Alata;
+        color: white;
+    }
+    input:focus {
+        border-bottom: 3px solid $sky;
+    }
+}
+
+.searchResults {
+    height: 35vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    li {
+        height: 125px;
+        width: 125px;
+        position: relative;
+        .actorName {
+            @include text-1;
+            position: absolute;
+            background: linear-gradient(to left, $sky 0%, $pp1 100%);
+            bottom: 5%;
+            right: -20%;
+            padding: 5px;
+            border-radius: 5px 5px;
+        }
+    }
+    li:hover {
+        -webkit-animation: swing 1s ease;
+        animation: swing 1s ease;
+        -webkit-animation-iteration-count: 1;
+        animation-iteration-count: 1;
+    }
+}
+
+

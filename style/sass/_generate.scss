@@ -1,0 +1,27 @@
+.generate {
+    height: 50vh;
+    background-image: url('../../image/background1.png');
+    background-size: cover;
+    background-position: center;
+    .generateContainer {
+        display: flex;
+        height: 100%;
+        position: relative;
+        justify-content: center;
+        .buttonContainer {
+            width: 200px;
+        }
+    }
+}
+
+.arrow1 {
+    position: absolute;
+    left: 0;
+    color: $pp1;
+}
+
+.arrow2 {
+    position: absolute;
+    right: 145px;
+    color:$sky;
+}

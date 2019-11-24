@@ -13,14 +13,20 @@ app.smallMovieList = [];
 
 app.displaySearchResults = () => {
 
+    $('.searchResults').empty();
+
     // console.log(app.searchResults[0]);
     for (x = 0; x < app.searchResults.length; x++) {
         $('.searchResults').append(`
-        <li value="${app.searchResults[x].id}">
-            <img src='https://image.tmdb.org/t/p/w180_and_h180_face${app.searchResults[x].profile_path}'>
-            <p>${app.searchResults[x].name}</p>
-            <div class='ratingBar'>${app.searchResults[x].popularity}</div>
+        <li value="${app.searchResults[x].id} " id="${app.searchResults[x].id}">
+            <div class="actorTag animated 1 tada delay-0s">
+                <div class="actorName">${app.searchResults[x].name}</div>
+                <div class='ratingBar'>${app.searchResults[x].popularity}</div>
+            </div>
         </li>`);
+        $(`.searchResults #${app.searchResults[x].id} .actorTag`).css(
+            'background-image', `url('https://image.tmdb.org/t/p/w180_and_h180_face${app.searchResults[x].profile_path}')`
+        )
     };
 };
 
@@ -53,11 +59,9 @@ app.displayPlaylist = () => {
             <button class='moveDown'>Move Down</button>
             <a href='https://www.youtube.com/watch?v='>Watch Trailer</a>
         </li>`);
-
     };
 
-    // console.log($('.playlist li:nth-child(1)'))
-    // $('.playlist li:nth-child(2)').css('background'+'red');
+
 
 
 };
@@ -121,6 +125,10 @@ $(function () {
 
         app.userPickIDs = [];
         app.userPickIDs.push($(this).val());
+    });
+
+    $('.playlistButton').mouseover(function () {
+        $('.arrow').css('animation', 'neon 1.5s ease-in-out infinite alternate');
     });
 
     $('.playlistButton').on('click', function () {
