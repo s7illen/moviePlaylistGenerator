@@ -26,7 +26,7 @@ app.displaySearchResults = () => {
         </li>`);
         $(`.searchResults #${app.searchResults[x].id} .actorTag`).css(
             'background-image', `url('https://image.tmdb.org/t/p/w180_and_h180_face${app.searchResults[x].profile_path}')`
-        )
+        );
     };
 };
 
@@ -125,6 +125,19 @@ $(function () {
 
         app.userPickIDs = [];
         app.userPickIDs.push($(this).val());
+
+        let selectedActor = app.searchResults.filter( human => human.id = 500);
+
+        $('.selectedActor').append(`
+        <li value="${selectedActor[0].id} " id="${selectedActor[0].id}">
+            <div class="actorTag animated 1 tada delay-0s">
+                <div class="actorName">${selectedActor[0].name}</div>
+                <div class='ratingBar'>${selectedActor[0].popularity}</div>
+            </div>
+        </li>`);
+        $(`.selectedActor #${selectedActor[0].id} .actorTag`).css(
+            'background-image', `url('https://image.tmdb.org/t/p/w180_and_h180_face${selectedActor[0].profile_path}')`
+        );
     });
 
     $('.playlistButton').mouseover(function () {

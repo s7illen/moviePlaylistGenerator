@@ -46,7 +46,8 @@
     }
 }
 
-.searchResults {
+.searchResults,
+.selectedActor {
     height: 35vh;
     display: flex;
     justify-content: space-around;
@@ -71,6 +72,10 @@
         -webkit-animation-iteration-count: 1;
         animation-iteration-count: 1;
     }
+}
+
+.selectedActor {
+    height: 25vh;
 }
 
 
