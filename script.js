@@ -41,7 +41,6 @@ app.getTrailer = (movieid) => {
 }
 
 app.displayPlaylist = () => {
-    // console.log(app.smallMovieList[0]);
 
     $('.playlist').empty();
 
@@ -57,11 +56,11 @@ app.displayPlaylist = () => {
                 <div class='ratingBar'>${app.smallMovieList[i].vote_average}</div>
                 <p>${app.smallMovieList[i].overview}</p>
             </div>
-            <div class='buttonContainer'>
-                <button class='pushTop'>↑⇧Move to Top</button>
-                <button class='skip'>Skip</button>
-                <button class='moveUp'>Move Up</button>
-                <button class='moveDown'>Move Down</button>
+            <div class='buttonHolder'>
+                <button class='pushTop'>⤒</button>
+                <button class='skip'>⨯</button>
+                <button class='moveUp'>˄</button>
+                <button class='moveDown'>˅</button>
             </div>
             <a href='https://www.youtube.com/watch?v='>Watch Trailer</a>
         </li>`);
@@ -161,7 +160,7 @@ $(function () {
             app.bigMovieList = data.cast;
         }).then(function(){
             app.smallMovieList = app.bigMovieList.slice(0, 10);
-            console.log(app.smallMovieList)
+            console.log(app.smallMovieList);
 
         }).then(function () {
             app.displayPlaylist();
@@ -170,7 +169,8 @@ $(function () {
 
     $('.playlist').on('click', '.skip', function() {
         
-        let arrayLocation = $(this).parent().attr('id');
+        let arrayLocation = $(this).parent().parent().attr('id');
+        console.log(arrayLocation)
         
         app.smallMovieList.splice(arrayLocation, 1);
         console.log(app.smallMovieList);
@@ -179,12 +179,11 @@ $(function () {
 
     $('.playlist').on('click', '.pushTop', function() {
 
-        let arrayLocation = $(this).parent().attr('id');
+        let arrayLocation = $(this).parent().parent().attr('id');
 
         let topValue = app.smallMovieList[arrayLocation];
         app.smallMovieList.splice(arrayLocation, 1);
         app.smallMovieList.unshift(topValue);
-        console.log(app.smallMovieList);
         app.displayPlaylist();
     });
 
@@ -196,7 +195,7 @@ $(function () {
 
     $('.playlist').on('click', '.moveUp', function(){
 
-        let arrayLocation = parseInt($(this).parent().attr('id'));
+        let arrayLocation = parseInt($(this).parent().parent().attr('id'));
 
         console.log(arrayLocation);
         let tem = app.smallMovieList[arrayLocation];
@@ -209,7 +208,7 @@ $(function () {
 
     $('.playlist').on('click', '.moveDown', function () {
 
-        let arrayLocation = parseInt($(this).parent().attr('id'));
+        let arrayLocation = parseInt($(this).parent().parent().attr('id'));
 
         let tem = app.smallMovieList[arrayLocation];
         app.smallMovieList[arrayLocation] = app.smallMovieList[arrayLocation + 1];
