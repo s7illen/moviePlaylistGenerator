@@ -37,8 +37,20 @@ $listItemBG: rgb(84, 0, 139);
 
     .infoTextContainer {
         width: 70%;
-
         padding: 0 15px;
+        h2 {
+            @include heading-2;
+        }
+        h4 {
+            font-family: 'Righteous', cursive;
+            font-size: 1.5rem;
+            color: white;
+            text-align: right;
+            margin: 0;
+        }
+        p {
+            @include text-2;
+        }
     }
 
     .infoTextContainer::after {
@@ -60,6 +72,7 @@ $listItemBG: rgb(84, 0, 139);
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        z-index: 1;
     
         button {
             font-size: 6.0rem;

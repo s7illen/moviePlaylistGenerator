@@ -133,7 +133,7 @@ $(function () {
         app.userPickIDs = [];
         app.userPickIDs.push($(this).val());
 
-        let selectedActor = app.searchResults.filter( human => human.id = 500);
+        let selectedActor = app.searchResults.filter((human) => human.id === app.userPickIDs[0]);
 
         $('.selectedActor').empty().append(`
         <li value="${selectedActor[0].id} " id="${selectedActor[0].id}">

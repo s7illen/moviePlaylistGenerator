@@ -180,6 +180,7 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
 }
 
 * {
+  border: red solid 1px;
   margin: 0;
   padding: 0;
 }
@@ -308,8 +309,6 @@ img {
   background: linear-gradient(-45deg, #881ab6, #5f0b93, #351fb5, #0d0729);
   opacity: 0.90;
   background-size: 400% 400%;
-  -webkit-animation: gradientBG 8s ease infinite;
-          animation: gradientBG 8s ease infinite;
 }
 
 @-webkit-keyframes gradientBG {
@@ -351,380 +350,6 @@ img {
       -ms-flex-align: center;
           align-items: center;
   height: 65vh;
-}
-
-.titleSearch .glitch {
-  color: white;
-  position: relative;
-}
-
-@-webkit-keyframes name-anim-1 {
-  0% {
-    -webkit-clip-path: inset(24% 0 72% 0);
-            clip-path: inset(24% 0 72% 0);
-  }
-  5% {
-    -webkit-clip-path: inset(64% 0 32% 0);
-            clip-path: inset(64% 0 32% 0);
-  }
-  10% {
-    -webkit-clip-path: inset(33% 0 23% 0);
-            clip-path: inset(33% 0 23% 0);
-  }
-  15% {
-    -webkit-clip-path: inset(37% 0 9% 0);
-            clip-path: inset(37% 0 9% 0);
-  }
-  20% {
-    -webkit-clip-path: inset(67% 0 30% 0);
-            clip-path: inset(67% 0 30% 0);
-  }
-  25% {
-    -webkit-clip-path: inset(17% 0 2% 0);
-            clip-path: inset(17% 0 2% 0);
-  }
-  30% {
-    -webkit-clip-path: inset(44% 0 6% 0);
-            clip-path: inset(44% 0 6% 0);
-  }
-  35% {
-    -webkit-clip-path: inset(16% 0 74% 0);
-            clip-path: inset(16% 0 74% 0);
-  }
-  40% {
-    -webkit-clip-path: inset(81% 0 5% 0);
-            clip-path: inset(81% 0 5% 0);
-  }
-  45% {
-    -webkit-clip-path: inset(26% 0 52% 0);
-            clip-path: inset(26% 0 52% 0);
-  }
-  50% {
-    -webkit-clip-path: inset(14% 0 83% 0);
-            clip-path: inset(14% 0 83% 0);
-  }
-  55% {
-    -webkit-clip-path: inset(76% 0 20% 0);
-            clip-path: inset(76% 0 20% 0);
-  }
-  60% {
-    -webkit-clip-path: inset(37% 0 3% 0);
-            clip-path: inset(37% 0 3% 0);
-  }
-  65% {
-    -webkit-clip-path: inset(22% 0 65% 0);
-            clip-path: inset(22% 0 65% 0);
-  }
-  70% {
-    -webkit-clip-path: inset(66% 0 35% 0);
-            clip-path: inset(66% 0 35% 0);
-  }
-  75% {
-    -webkit-clip-path: inset(49% 0 17% 0);
-            clip-path: inset(49% 0 17% 0);
-  }
-  80% {
-    -webkit-clip-path: inset(84% 0 6% 0);
-            clip-path: inset(84% 0 6% 0);
-  }
-  85% {
-    -webkit-clip-path: inset(14% 0 17% 0);
-            clip-path: inset(14% 0 17% 0);
-  }
-  90% {
-    -webkit-clip-path: inset(100% 0 1% 0);
-            clip-path: inset(100% 0 1% 0);
-  }
-  95% {
-    -webkit-clip-path: inset(95% 0 1% 0);
-            clip-path: inset(95% 0 1% 0);
-  }
-  100% {
-    -webkit-clip-path: inset(84% 0 9% 0);
-            clip-path: inset(84% 0 9% 0);
-  }
-}
-
-@keyframes name-anim-1 {
-  0% {
-    -webkit-clip-path: inset(24% 0 72% 0);
-            clip-path: inset(24% 0 72% 0);
-  }
-  5% {
-    -webkit-clip-path: inset(64% 0 32% 0);
-            clip-path: inset(64% 0 32% 0);
-  }
-  10% {
-    -webkit-clip-path: inset(33% 0 23% 0);
-            clip-path: inset(33% 0 23% 0);
-  }
-  15% {
-    -webkit-clip-path: inset(37% 0 9% 0);
-            clip-path: inset(37% 0 9% 0);
-  }
-  20% {
-    -webkit-clip-path: inset(67% 0 30% 0);
-            clip-path: inset(67% 0 30% 0);
-  }
-  25% {
-    -webkit-clip-path: inset(17% 0 2% 0);
-            clip-path: inset(17% 0 2% 0);
-  }
-  30% {
-    -webkit-clip-path: inset(44% 0 6% 0);
-            clip-path: inset(44% 0 6% 0);
-  }
-  35% {
-    -webkit-clip-path: inset(16% 0 74% 0);
-            clip-path: inset(16% 0 74% 0);
-  }
-  40% {
-    -webkit-clip-path: inset(81% 0 5% 0);
-            clip-path: inset(81% 0 5% 0);
-  }
-  45% {
-    -webkit-clip-path: inset(26% 0 52% 0);
-            clip-path: inset(26% 0 52% 0);
-  }
-  50% {
-    -webkit-clip-path: inset(14% 0 83% 0);
-            clip-path: inset(14% 0 83% 0);
-  }
-  55% {
-    -webkit-clip-path: inset(76% 0 20% 0);
-            clip-path: inset(76% 0 20% 0);
-  }
-  60% {
-    -webkit-clip-path: inset(37% 0 3% 0);
-            clip-path: inset(37% 0 3% 0);
-  }
-  65% {
-    -webkit-clip-path: inset(22% 0 65% 0);
-            clip-path: inset(22% 0 65% 0);
-  }
-  70% {
-    -webkit-clip-path: inset(66% 0 35% 0);
-            clip-path: inset(66% 0 35% 0);
-  }
-  75% {
-    -webkit-clip-path: inset(49% 0 17% 0);
-            clip-path: inset(49% 0 17% 0);
-  }
-  80% {
-    -webkit-clip-path: inset(84% 0 6% 0);
-            clip-path: inset(84% 0 6% 0);
-  }
-  85% {
-    -webkit-clip-path: inset(14% 0 17% 0);
-            clip-path: inset(14% 0 17% 0);
-  }
-  90% {
-    -webkit-clip-path: inset(100% 0 1% 0);
-            clip-path: inset(100% 0 1% 0);
-  }
-  95% {
-    -webkit-clip-path: inset(95% 0 1% 0);
-            clip-path: inset(95% 0 1% 0);
-  }
-  100% {
-    -webkit-clip-path: inset(84% 0 9% 0);
-            clip-path: inset(84% 0 9% 0);
-  }
-}
-
-@-webkit-keyframes name-anim-2 {
-  0% {
-    -webkit-clip-path: inset(81% 0 6% 0);
-            clip-path: inset(81% 0 6% 0);
-  }
-  5% {
-    -webkit-clip-path: inset(64% 0 35% 0);
-            clip-path: inset(64% 0 35% 0);
-  }
-  10% {
-    -webkit-clip-path: inset(22% 0 30% 0);
-            clip-path: inset(22% 0 30% 0);
-  }
-  15% {
-    -webkit-clip-path: inset(19% 0 25% 0);
-            clip-path: inset(19% 0 25% 0);
-  }
-  20% {
-    -webkit-clip-path: inset(68% 0 2% 0);
-            clip-path: inset(68% 0 2% 0);
-  }
-  25% {
-    -webkit-clip-path: inset(57% 0 26% 0);
-            clip-path: inset(57% 0 26% 0);
-  }
-  30% {
-    -webkit-clip-path: inset(39% 0 12% 0);
-            clip-path: inset(39% 0 12% 0);
-  }
-  35% {
-    -webkit-clip-path: inset(32% 0 29% 0);
-            clip-path: inset(32% 0 29% 0);
-  }
-  40% {
-    -webkit-clip-path: inset(22% 0 57% 0);
-            clip-path: inset(22% 0 57% 0);
-  }
-  45% {
-    -webkit-clip-path: inset(8% 0 58% 0);
-            clip-path: inset(8% 0 58% 0);
-  }
-  50% {
-    -webkit-clip-path: inset(44% 0 1% 0);
-            clip-path: inset(44% 0 1% 0);
-  }
-  55% {
-    -webkit-clip-path: inset(46% 0 38% 0);
-            clip-path: inset(46% 0 38% 0);
-  }
-  60% {
-    -webkit-clip-path: inset(68% 0 21% 0);
-            clip-path: inset(68% 0 21% 0);
-  }
-  65% {
-    -webkit-clip-path: inset(80% 0 9% 0);
-            clip-path: inset(80% 0 9% 0);
-  }
-  70% {
-    -webkit-clip-path: inset(97% 0 4% 0);
-            clip-path: inset(97% 0 4% 0);
-  }
-  75% {
-    -webkit-clip-path: inset(88% 0 4% 0);
-            clip-path: inset(88% 0 4% 0);
-  }
-  80% {
-    -webkit-clip-path: inset(67% 0 11% 0);
-            clip-path: inset(67% 0 11% 0);
-  }
-  85% {
-    -webkit-clip-path: inset(92% 0 9% 0);
-            clip-path: inset(92% 0 9% 0);
-  }
-  90% {
-    -webkit-clip-path: inset(97% 0 2% 0);
-            clip-path: inset(97% 0 2% 0);
-  }
-  95% {
-    -webkit-clip-path: inset(54% 0 17% 0);
-            clip-path: inset(54% 0 17% 0);
-  }
-  100% {
-    -webkit-clip-path: inset(29% 0 11% 0);
-            clip-path: inset(29% 0 11% 0);
-  }
-}
-
-@keyframes name-anim-2 {
-  0% {
-    -webkit-clip-path: inset(81% 0 6% 0);
-            clip-path: inset(81% 0 6% 0);
-  }
-  5% {
-    -webkit-clip-path: inset(64% 0 35% 0);
-            clip-path: inset(64% 0 35% 0);
-  }
-  10% {
-    -webkit-clip-path: inset(22% 0 30% 0);
-            clip-path: inset(22% 0 30% 0);
-  }
-  15% {
-    -webkit-clip-path: inset(19% 0 25% 0);
-            clip-path: inset(19% 0 25% 0);
-  }
-  20% {
-    -webkit-clip-path: inset(68% 0 2% 0);
-            clip-path: inset(68% 0 2% 0);
-  }
-  25% {
-    -webkit-clip-path: inset(57% 0 26% 0);
-            clip-path: inset(57% 0 26% 0);
-  }
-  30% {
-    -webkit-clip-path: inset(39% 0 12% 0);
-            clip-path: inset(39% 0 12% 0);
-  }
-  35% {
-    -webkit-clip-path: inset(32% 0 29% 0);
-            clip-path: inset(32% 0 29% 0);
-  }
-  40% {
-    -webkit-clip-path: inset(22% 0 57% 0);
-            clip-path: inset(22% 0 57% 0);
-  }
-  45% {
-    -webkit-clip-path: inset(8% 0 58% 0);
-            clip-path: inset(8% 0 58% 0);
-  }
-  50% {
-    -webkit-clip-path: inset(44% 0 1% 0);
-            clip-path: inset(44% 0 1% 0);
-  }
-  55% {
-    -webkit-clip-path: inset(46% 0 38% 0);
-            clip-path: inset(46% 0 38% 0);
-  }
-  60% {
-    -webkit-clip-path: inset(68% 0 21% 0);
-            clip-path: inset(68% 0 21% 0);
-  }
-  65% {
-    -webkit-clip-path: inset(80% 0 9% 0);
-            clip-path: inset(80% 0 9% 0);
-  }
-  70% {
-    -webkit-clip-path: inset(97% 0 4% 0);
-            clip-path: inset(97% 0 4% 0);
-  }
-  75% {
-    -webkit-clip-path: inset(88% 0 4% 0);
-            clip-path: inset(88% 0 4% 0);
-  }
-  80% {
-    -webkit-clip-path: inset(67% 0 11% 0);
-            clip-path: inset(67% 0 11% 0);
-  }
-  85% {
-    -webkit-clip-path: inset(92% 0 9% 0);
-            clip-path: inset(92% 0 9% 0);
-  }
-  90% {
-    -webkit-clip-path: inset(97% 0 2% 0);
-            clip-path: inset(97% 0 2% 0);
-  }
-  95% {
-    -webkit-clip-path: inset(54% 0 17% 0);
-            clip-path: inset(54% 0 17% 0);
-  }
-  100% {
-    -webkit-clip-path: inset(29% 0 11% 0);
-            clip-path: inset(29% 0 11% 0);
-  }
-}
-
-.titleSearch .glitch::before, .titleSearch .glitch::after {
-  content: attr(data-text);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: none;
-}
-
-.titleSearch .glitch::after {
-  left: 2px;
-  text-shadow: -1px 0 #ff6f00;
-  animation: name-anim-1 3s infinite linear alternate-reverse;
-}
-
-.titleSearch .glitch::before {
-  left: -2px;
-  text-shadow: 1px 0 #15d0fa;
-  animation: name-anim-2 3s infinite linear alternate-reverse;
 }
 
 .titleSearch h1 {
@@ -895,6 +520,29 @@ img {
   padding: 0 15px;
 }
 
+.playlistItem .infoTextContainer h2 {
+  font-family: 'Righteous', cursive;
+  font-size: 4rem;
+  line-height: 5rem;
+  color: white;
+  margin: 0;
+}
+
+.playlistItem .infoTextContainer h4 {
+  font-family: 'Righteous', cursive;
+  font-size: 1.5rem;
+  color: white;
+  text-align: right;
+  margin: 0;
+}
+
+.playlistItem .infoTextContainer p {
+  font-family: 'Varela Round', sans-serif;
+  font-size: 1.2rem;
+  color: white;
+  margin: 0;
+}
+
 .playlistItem .infoTextContainer::after {
   content: '';
   display: block;
@@ -919,6 +567,7 @@ img {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  z-index: 1;
 }
 
 .playlistItem .buttonHolder button {
