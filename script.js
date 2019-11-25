@@ -46,22 +46,28 @@ app.displayPlaylist = () => {
     $('.playlist').empty();
 
     for (i = 0; i < app.smallMovieList.length; i++){
-        $('.playlist').append(`<li id='${i}'>
-            <img src='https://image.tmdb.org/t/p/w185_and_h278_bestv2${app.smallMovieList[i].poster_path}'>
-            <h3>${app.smallMovieList[i].original_title}</h3>
-            <p>${app.smallMovieList[i].release_date}</p>
-            <div class='ratingBar'>${app.smallMovieList[i].popularity}</div>
-            <div class='ratingBar'>${app.smallMovieList[i].vote_average}</div>
-            <p>${app.smallMovieList[i].overview}</p>
-            <button class='pushTop'>↑⇧Move to Top</button>
-            <button class='skip'>Skip</button>
-            <button class='moveUp'>Move Up</button>
-            <button class='moveDown'>Move Down</button>
+        $('.playlist').append(`<li class='playlistItem' id='${i}'>
+            <div class='posterContainer'>
+                <img src='https://image.tmdb.org/t/p/w185_and_h278_bestv2${app.smallMovieList[i].poster_path}'>
+            </div>
+            <div class='infoTextContainer'>
+                <h2>${app.smallMovieList[i].original_title}</h2>
+                <h4>${app.smallMovieList[i].release_date}</h4>
+                <div class='ratingBar'>${app.smallMovieList[i].popularity}</div>
+                <div class='ratingBar'>${app.smallMovieList[i].vote_average}</div>
+                <p>${app.smallMovieList[i].overview}</p>
+            </div>
+            <div class='buttonContainer'>
+                <button class='pushTop'>↑⇧Move to Top</button>
+                <button class='skip'>Skip</button>
+                <button class='moveUp'>Move Up</button>
+                <button class='moveDown'>Move Down</button>
+            </div>
             <a href='https://www.youtube.com/watch?v='>Watch Trailer</a>
         </li>`);
     };
 
-
+    $("html, body").animate({ scrollTop: "1000px" });
 
 
 };
@@ -105,6 +111,8 @@ app.getActors = (actorName) => {
         }
         console.log('five actors max:', fiveActorsMaxList);
 
+        $("html, body").animate({ scrollTop: "400px" });
+
     }).then(function () {
         app.searchResults = fiveActorsMaxList;
         console.log('search results', app.searchResults);
@@ -128,7 +136,7 @@ $(function () {
 
         let selectedActor = app.searchResults.filter( human => human.id = 500);
 
-        $('.selectedActor').append(`
+        $('.selectedActor').empty().append(`
         <li value="${selectedActor[0].id} " id="${selectedActor[0].id}">
             <div class="actorTag animated 1 tada delay-0s">
                 <div class="actorName">${selectedActor[0].name}</div>
