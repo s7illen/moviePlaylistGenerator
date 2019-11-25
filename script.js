@@ -15,7 +15,6 @@ app.displaySearchResults = () => {
 
     $('.searchResults').empty();
 
-    // console.log(app.searchResults[0]);
     for (x = 0; x < app.searchResults.length; x++) {
         $('.searchResults').append(`
         <li value="${app.searchResults[x].id} " id="${app.searchResults[x].id}">
@@ -24,21 +23,18 @@ app.displaySearchResults = () => {
                 <div class='ratingBar'>${app.searchResults[x].popularity}</div>
             </div>
         </li>`);
-        $(`.searchResults #${app.searchResults[x].id} .actorTag`).css(
-            'background-image', `url('https://image.tmdb.org/t/p/w180_and_h180_face${app.searchResults[x].profile_path}')`
-        );
+
+        if (app.searchResults[x].profile_path == null) {
+            $(`.searchResults #${app.searchResults[x].id} .actorTag`).css(
+                'background-image', `url(./image/defaultPerson.jpg)`
+            );
+        } else {
+            $(`.searchResults #${app.searchResults[x].id} .actorTag`).css(
+                'background-image', `url('https://image.tmdb.org/t/p/w180_and_h180_face${app.searchResults[x].profile_path}')`
+            );
+        }
     };
 };
-
-app.getTrailer = (movieid) => {
-    $.ajax({
-        url: `https://api.themoviedb.org/3/movie/${512}/videos?api_key=${app.apiKey}&language=en-US`,
-        method: 'GET',
-        dataType: 'json',
-    }).then(function(data){
-        console.log(data.results)
-    });
-}
 
 app.displayPlaylist = () => {
 
@@ -46,9 +42,16 @@ app.displayPlaylist = () => {
 
     for (i = 0; i < app.smallMovieList.length; i++){
         $('.playlist').append(`<li class='playlistItem' id='${i}'>
-            <div class='posterContainer'>
+            ${app.smallMovieList[i].poster_path == null ?
+            `<div class='posterContainer'>
+                <img src='./image/defaultPoster.jpg'>
+            </div>`
+            :
+            `<div class='posterContainer'>
                 <img src='https://image.tmdb.org/t/p/w185_and_h278_bestv2${app.smallMovieList[i].poster_path}'>
-            </div>
+            </div>`
+            }
+        
             <div class='infoTextContainer'>
                 <h2>${app.smallMovieList[i].original_title}</h2>
                 <h4>${app.smallMovieList[i].release_date}</h4>
@@ -62,7 +65,6 @@ app.displayPlaylist = () => {
                 <button class='moveUp'>˄</button>
                 <button class='moveDown'>˅</button>
             </div>
-            <a href='https://www.youtube.com/watch?v='>Watch Trailer</a>
         </li>`);
     };
 
@@ -135,6 +137,7 @@ $(function () {
 
         let selectedActor = app.searchResults.filter((human) => human.id === app.userPickIDs[0]);
 
+        console.log('selected actor:', selectedActor);
         $('.selectedActor').empty().append(`
         <li value="${selectedActor[0].id} " id="${selectedActor[0].id}">
             <div class="actorTag animated 1 tada delay-0s">
@@ -142,9 +145,15 @@ $(function () {
                 <div class='ratingBar'>${selectedActor[0].popularity}</div>
             </div>
         </li>`);
-        $(`.selectedActor #${selectedActor[0].id} .actorTag`).css(
-            'background-image', `url('https://image.tmdb.org/t/p/w180_and_h180_face${selectedActor[0].profile_path}')`
-        );
+        if (selectedActor[0].profile_path == null) {
+            $(`.selectedActor #${selectedActor[0].id} .actorTag`).css(
+                'background-image', `url(./image/defaultPerson.jpg)`
+            );
+        } else {
+            $(`.selectedActor #${selectedActor[0].id} .actorTag`).css(
+                'background-image', `url('https://image.tmdb.org/t/p/w180_and_h180_face${selectedActor[0].profile_path}')`
+            );
+        }
     });
 
     $('.playlistButton').mouseover(function () {
