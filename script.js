@@ -20,7 +20,6 @@ app.displaySearchResults = () => {
         <li value="${app.searchResults[x].id} " id="${app.searchResults[x].id}">
             <div class="actorTag animated 1 tada delay-0s">
                 <div class="actorName">${app.searchResults[x].name}</div>
-                <div class='ratingBar'>${app.searchResults[x].popularity}</div>
             </div>
         </li>`);
 
@@ -40,30 +39,30 @@ app.displayPlaylist = () => {
 
     $('.playlist').empty();
 
-    for (i = 0; i < app.smallMovieList.length; i++){
+    for (i = 0; i < app.smallMovieList.length; i++) {
         $('.playlist').append(`<li class='playlistItem' id='${i}'>
             ${app.smallMovieList[i].poster_path == null ?
-            `<div class='posterContainer'>
+                `<div class='posterContainer'>
                 <img src='./image/defaultPoster.jpg'>
             </div>`
-            :
-            `<div class='posterContainer'>
+                :
+                `<div class='posterContainer'>
                 <img src='https://image.tmdb.org/t/p/w185_and_h278_bestv2${app.smallMovieList[i].poster_path}'>
             </div>`
             }
         
             <div class='infoTextContainer'>
                 <h2>${app.smallMovieList[i].original_title}</h2>
-                <h4>${app.smallMovieList[i].release_date}</h4>
-                <div class='ratingBar'>${app.smallMovieList[i].popularity}</div>
-                <div class='ratingBar'>${app.smallMovieList[i].vote_average}</div>
+                <div class='ratingBar'><i class="fas fa-smile"></i> Rating: ${app.smallMovieList[i].vote_average}
+                    <span>${app.smallMovieList[i].release_date}</h4>
+                </div>
                 <p>${app.smallMovieList[i].overview}</p>
             </div>
             <div class='buttonHolder'>
-                <button class='pushTop'>⤒</button>
-                <button class='skip'>⨯</button>
-                <button class='moveUp'>˄</button>
-                <button class='moveDown'>˅</button>
+                <button class='pushTop'><i class="fas fa-level-up-alt"></i></button>
+                <button class='skip'><i class="fas fa-times"></i></button>
+                <button class='moveUp'><i class="fas fa-chevron-up"></i></button>
+                <button class='moveDown'><i class="fas fa-chevron-down"></i></button>
             </div>
         </li>`);
     };
@@ -142,7 +141,6 @@ $(function () {
         <li value="${selectedActor[0].id} " id="${selectedActor[0].id}">
             <div class="actorTag animated 1 tada delay-0s">
                 <div class="actorName">${selectedActor[0].name}</div>
-                <div class='ratingBar'>${selectedActor[0].popularity}</div>
             </div>
         </li>`);
         if (selectedActor[0].profile_path == null) {
@@ -157,7 +155,7 @@ $(function () {
     });
 
     $('.playlistButton').mouseover(function () {
-        $('.arrow').css('animation', 'neon 1.5s ease-in-out infinite alternate');
+        $('.neon').css('animation', 'neon 1.5s ease-in-out 10 alternate');
     });
 
     $('.playlistButton').on('click', function () {

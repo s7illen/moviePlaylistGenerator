@@ -3,7 +3,6 @@ $pp2: #45108a;
 $sky: #2af6ff;
 
 * {
-    border: red solid 1px;
     margin: 0;
     padding: 0;
 }
@@ -152,32 +151,6 @@ img {
     }
 }
 
-//Neon Arrows
-.arrow {
-    width: 0;
-    height: 0;
-    text-align: center;
-    font-family: 'raleway', sans-serif;
-    font-size: 9em;
-    letter-spacing: -2rem;
-    margin: 0;
-    -webkit-transform:scale(1,5);
-    -moz-transform:scale(1,5);
-    text-decoration: none;
-    -webkit-transition: all 0.5s;
-    -moz-transition: all 0.5s;
-    transition: all 0.5s;
-    margin-top: -25vh;
-}
-
-@-webkit-keyframes neon {
-  from {
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de, 0 0 150px #ff00de;
-  }
-  to {
-    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff00de, 0 0 35px #ff00de, 0 0 40px #ff00de, 0 0 50px #ff00de, 0 0 75px #ff00de;
-  }
-}
 
 @media (max-width: 960px) {
     .wrapper {
@@ -194,9 +167,14 @@ img {
     text-transform: uppercase;
     text-align: center;
     margin: 0;
-    // @media (max-width: 700px) {
-    //     font-size: 2rem;
-    // }
+    @media (max-width: 800px) {
+        font-size: 5rem;
+        line-height: 6rem;
+    }
+    @media (max-width: 500px) {
+        font-size: 4rem;
+        line-height: 5rem;
+    }
 }
 
 @mixin heading-2 {
@@ -205,6 +183,14 @@ img {
     line-height: 5rem;
     color: white;
     margin: 0;
+    @media (max-width: 800px) {
+        font-size: 3rem;
+        line-height: 3.5rem;
+    }
+    @media (max-width: 500px) {
+        font-size: 2rem;
+        line-height: 2rem;
+    }
 }
 
 @mixin heading-3 {
@@ -228,7 +214,10 @@ img {
 
 @mixin text-2 {
     font-family: 'Varela Round', sans-serif;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     color: white;
     margin: 0;
+    @media (max-width: 500px) {
+        font-size: 1.2rem;
+    }
 }

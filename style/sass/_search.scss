@@ -37,7 +37,7 @@
         border: none;
         border-bottom: 3px solid white;
         margin-right: 20px;
-        font-size: 36px;
+        font-size: 3rem;
         font-family: Alata;
         color: white;
     }
@@ -79,3 +79,35 @@
 }
 
 
+@media (max-width: 800px) {
+    .titleSearch {
+    height: 55vh;
+    }
+    .searchContainer {
+        margin-top: 30px;
+        flex-direction: column;
+        input {
+            text-align: center;
+            width: 80%;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        input:focus {
+            border-bottom: 3px solid $sky;
+        }
+    }
+    .searchResults {
+        flex-wrap: wrap;
+        li{
+            height: 100px;
+            width: 100px;
+            margin: 10px;
+        }
+    }
+}
+
+@media (max-width: 410px) {
+    .search {
+        height: 120vh;
+    }
+}

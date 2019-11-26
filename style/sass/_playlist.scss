@@ -3,10 +3,8 @@ $listItemBG: rgb(84, 0, 139);
 
 // contains wrapped ul in which the movie playlist is generated
 .playlistSection {
-
-    padding: 50px 0;
-
-    background: linear-gradient(45deg, $playlistBGDark 30%, $pp2 50%, $playlistBGDark 100%);
+    padding: 80px 0;
+    background: linear-gradient(75deg, $playlistBGDark 30%, $pp2 50%, $playlistBGDark 100%);
 }
 
 // each movie item li
@@ -18,6 +16,8 @@ $listItemBG: rgb(84, 0, 139);
     flex-wrap: wrap;
 
     position: relative;
+
+    align-items: center;
 
     background: $listItemBG;
 
@@ -37,16 +37,19 @@ $listItemBG: rgb(84, 0, 139);
 
     .infoTextContainer {
         width: 70%;
-        padding: 0 15px;
+        padding: 15px;
         h2 {
             @include heading-2;
         }
-        h4 {
+        .ratingBar {
             font-family: 'Righteous', cursive;
             font-size: 1.5rem;
-            color: white;
-            text-align: right;
-            margin: 0;
+            color: $sky;
+            padding: 1rem 0;
+            span {
+                float: right;
+                color: white;
+            }
         }
         p {
             @include text-2;
@@ -71,32 +74,19 @@ $listItemBG: rgb(84, 0, 139);
         width: 10%;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
         z-index: 1;
-    
         button {
-            font-size: 6.0rem;
             border: none;
             background: $listItemBG;
             color: $sky;
+            font-size: 2.5rem;
+            padding: 20px 0;
+            transition: 0.3s;
         }
-
         button:hover,
         button:focus {
             background: $sky;
             color: $listItemBG;
-        }
-
-        .skip {
-            padding-bottom: 10px;
-        }
-
-        .moveUp {
-            padding-top: 10px;
-        }
-
-        .moveDown {
-            padding-top: 15px;
         }
 
     }
@@ -111,4 +101,65 @@ $listItemBG: rgb(84, 0, 139);
 // prevent the last item from being moved down
 .playlist li:last-child .moveDown {
     display: none;
+}
+
+@media (max-width: 800px) {
+    .playlistSection {
+        padding: 20px 0;
+    }
+    .playlistItem {
+        .posterContainer {
+            position: static;
+            top: 0;
+            left: 0;
+            width: 25%;
+            img {
+                border: none;
+            }
+        }
+
+        .infoTextContainer {
+            width: 75%;
+        }
+
+        .infoTextContainer::after {
+            display: none;
+        }
+
+        .buttonHolder {
+            width: 100%;
+            flex-direction: row;
+            justify-content: flex-end;
+            button {
+                font-size: 2.0rem;
+                height: 50px;
+                width: 50px;
+                padding: 0;
+            }
+        }
+    }
+}
+
+@media (max-width: 650px) {
+    .playlistItem {
+        .posterContainer {
+            width: 35%;
+        }
+
+        .infoTextContainer {
+            width: 65%;
+        }
+
+        .buttonHolder {
+            width: 100%;
+            flex-direction: row;
+            justify-content: flex-end;
+            button {
+                font-size: 2.0rem;
+                height: 50px;
+                width: 50px;
+                padding: 0;
+            }
+        }
+    }
 }
