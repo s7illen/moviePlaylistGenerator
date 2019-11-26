@@ -59,7 +59,7 @@ img {
     background: linear-gradient(-45deg, rgb(136, 26, 182), rgb(95, 11, 147), rgb(53, 31, 181), rgba(13, 7, 41, 1));
     opacity: 0.90;
     background-size: 400% 400%;
-    // animation: gradientBG 8s ease infinite;
+    animation: gradientBG 8s ease infinite;
     @keyframes gradientBG {
         0% {
         background-position: 0% 50%;
@@ -73,7 +73,7 @@ img {
     }
 }
 
-//button styling
+//Button styling
 .buttonContainer {
     width: 140px;
     button {
@@ -137,7 +137,7 @@ img {
   }
 }
 
-// Actor tag
+// Actor Tag Styling
 .actorTag {
     height: 100%;
     width: 100%;

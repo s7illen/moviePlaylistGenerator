@@ -1,34 +1,22 @@
 $playlistBGDark: rgb(26, 0, 78);
 $listItemBG: rgb(84, 0, 139);
 
-// contains wrapped ul in which the movie playlist is generated
 .playlistSection {
-    padding: 80px 0;
     background: linear-gradient(75deg, $playlistBGDark 30%, $pp2 50%, $playlistBGDark 100%);
 }
 
-// each movie item li
 .playlistItem {
-
     margin: 80px 0;
-
     display: flex;
     flex-wrap: wrap;
-
     position: relative;
-
     align-items: center;
-
     background: $listItemBG;
-
     .posterContainer {
         width: 20%;
-
         position: relative;
-
         top: -30px;
         left: -30px;
-
         img {
             border-top: 6px solid $sky;
             border-left: 6px solid $sky;
@@ -61,10 +49,8 @@ $listItemBG: rgb(84, 0, 139);
         display: block;
         width: 600px;
         height: 200px;
-
         border-right: 6px solid $sky;
         border-bottom: 6px solid $sky;
-        
         position: absolute;
         right: -26px;
         bottom: -25px;
@@ -104,9 +90,6 @@ $listItemBG: rgb(84, 0, 139);
 }
 
 @media (max-width: 800px) {
-    .playlistSection {
-        padding: 20px 0;
-    }
     .playlistItem {
         .posterContainer {
             position: static;
@@ -148,18 +131,6 @@ $listItemBG: rgb(84, 0, 139);
 
         .infoTextContainer {
             width: 65%;
-        }
-
-        .buttonHolder {
-            width: 100%;
-            flex-direction: row;
-            justify-content: flex-end;
-            button {
-                font-size: 2.0rem;
-                height: 50px;
-                width: 50px;
-                padding: 0;
-            }
         }
     }
 }

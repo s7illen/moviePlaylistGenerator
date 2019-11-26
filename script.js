@@ -1,4 +1,3 @@
-// the web app object
 const app = {};
 
 app.apiKey = `aaf61b600bd7e26a96f6e5cf0dc95050`;
@@ -39,6 +38,8 @@ app.displayPlaylist = () => {
 
     $('.playlist').empty();
 
+    $('.playlistSection').css('padding','50px 0')
+
     for (i = 0; i < app.smallMovieList.length; i++) {
         $('.playlist').append(`<li class='playlistItem' id='${i}'>
             ${app.smallMovieList[i].poster_path == null ?
@@ -68,19 +69,12 @@ app.displayPlaylist = () => {
     };
 
     $("html, body").animate({ scrollTop: "1000px" });
-
-
 };
 
-// searches for user input: actor name and returns their id number
 app.getActors = (actorName) => {
-    // data.results[0].id -- gets you the actor ID
 
-    // an array of objects that'll contain people data
     let peopleList = [];
-    // list of ONLY actors
     let actorList = [];
-
     let fiveActorsMaxList = [];
 
     $.ajax({
@@ -88,15 +82,9 @@ app.getActors = (actorName) => {
         method: 'GET',
         dataType: 'json',
     }).then(function (data) {
-
-        // an array of objects containing people data
         peopleList = data.results;
-
     }).then(function () {
-
         for (person in peopleList) {
-            // console.log('persons:', peopleList[person].name, peopleList[person].known_for_department); 
-
             if (peopleList[person].known_for_department == 'Acting') {
                 actorList.push(peopleList[person]);
             };
@@ -109,14 +97,11 @@ app.getActors = (actorName) => {
         } else {
             fiveActorsMaxList = actorList;
         }
-        console.log('five actors max:', fiveActorsMaxList);
 
-        $("html, body").animate({ scrollTop: "400px" });
+        $("html, body").animate({ scrollTop: "400px"});
 
     }).then(function () {
         app.searchResults = fiveActorsMaxList;
-        console.log('search results', app.searchResults);
-
     }).then(function () {
         app.displaySearchResults();
     });
@@ -136,7 +121,6 @@ $(function () {
 
         let selectedActor = app.searchResults.filter((human) => human.id === app.userPickIDs[0]);
 
-        console.log('selected actor:', selectedActor);
         $('.selectedActor').empty().append(`
         <li value="${selectedActor[0].id} " id="${selectedActor[0].id}">
             <div class="actorTag animated 1 tada delay-0s">
@@ -167,71 +151,38 @@ $(function () {
             app.bigMovieList = data.cast;
         }).then(function(){
             app.smallMovieList = app.bigMovieList.slice(0, 10);
-            console.log(app.smallMovieList);
-
         }).then(function () {
             app.displayPlaylist();
         });
     });
 
     $('.playlist').on('click', '.skip', function() {
-        
         let arrayLocation = $(this).parent().parent().attr('id');
-        console.log(arrayLocation)
-        
         app.smallMovieList.splice(arrayLocation, 1);
-        console.log(app.smallMovieList);
         app.displayPlaylist();
     });
 
     $('.playlist').on('click', '.pushTop', function() {
-
         let arrayLocation = $(this).parent().parent().attr('id');
-
         let topValue = app.smallMovieList[arrayLocation];
         app.smallMovieList.splice(arrayLocation, 1);
         app.smallMovieList.unshift(topValue);
         app.displayPlaylist();
     });
 
-
-// write a function that does this:
-// move up button
-// move down button
-
-
     $('.playlist').on('click', '.moveUp', function(){
-
         let arrayLocation = parseInt($(this).parent().parent().attr('id'));
-
-        console.log(arrayLocation);
         let tem = app.smallMovieList[arrayLocation];
         app.smallMovieList[arrayLocation] = app.smallMovieList[arrayLocation - 1];
         app.smallMovieList[arrayLocation - 1] = tem;
-        console.log(app.smallMovieList);
         app.displayPlaylist();
-
     })
 
     $('.playlist').on('click', '.moveDown', function () {
-
         let arrayLocation = parseInt($(this).parent().parent().attr('id'));
-
         let tem = app.smallMovieList[arrayLocation];
         app.smallMovieList[arrayLocation] = app.smallMovieList[arrayLocation + 1];
         app.smallMovieList[arrayLocation + 1] = tem;
         app.displayPlaylist();
-
     })
-
-
-    // swap their respective values
-    // make sure to limit options #1, #10
 });
-
-//make a function that returns a playlist
-
-
-//grab the actor id value, save it, send it to api
-
-// app.userPickIDs[0]
